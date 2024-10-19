@@ -64,6 +64,16 @@ Config.TradeNoSpace = {
 }
 
 --------------------------------------------------------------------------------
+-------- NPC-UNTERTITEL, WENN DAS LIMIT FÜR EINEN TAUSCH ERREICHT IST ----------
+--------------------------------------------------------------------------------
+
+Config.TradeLimitReached = {
+    "Keine weiteren Deals, ich bin an meinem Limit.",
+    "Ich kann nichts mehr annehmen, mein Freund.",
+    "Sorry, Partner, aber ich habe mein Limit für Geschäfte dieser Art erreicht.",
+}
+
+--------------------------------------------------------------------------------
 --------- NPC-UNTERTITEL, BEI DER MAXIMALEN ANZAHL AN TAUSCHGESCHÄFTEN ---------
 --------------------------------------------------------------------------------
 
@@ -82,6 +92,7 @@ Config.TradeFailNotification = "Dir fehlen die benötigten Gegenstände für die
 Config.TradeNotAllowedNotification = "Du darfst hier nicht handeln!"
 Config.TradeNoSpaceNotification = "Du hast nicht genügend Platz in deinem Inventar."
 Config.TradeQueueFullNotification = "Die Liste ist voll, warte einen Moment für den nächsten Handel."
+Config.TradeLimitReachedNotification = "Das Limit für diesen Handel wurde erreicht, komm später wieder!"
 
 --------------------------------------------------------------------------------
 ----------- ÜBERSETZUNGEN, WELCHE INNERHALB DES MENÜS GENUTZT WERDEN ----------- 
@@ -90,35 +101,6 @@ Config.TradeQueueFullNotification = "Die Liste ist voll, warte einen Moment für
 Config.Translations = {
     ["needed"] = "wird benötigt.",
     ["receive"] = "Du erhältst",
-}
-
---------------------------------------------------------------------------------
-------------------------------- DISCORD WEBHOOKS ------------------------------- 
---------------------------------------------------------------------------------
-
-Config.UseWebhook = false
-Config.WebhookData = {
-    WebhookUrl = "",
-    WebhookTitle = "",
-    WebhookColor = 16711680,
-    WebhookName = "Barterer",
-    WebhookLogo = "https://via.placeholder.com/30x30",
-    WebhookLogo2 = "https://via.placeholder.com/30x30",
-    WebhookAvatar = "https://via.placeholder.com/30x30"
-}
-
---[[ In den Discord-Nachrichten können Platzhalter verwendet werden, folgende Platzhalter sind verfügbar:
-
-[character_name] - Fügt den Charakternamen im Format "Vorname Nachname" ein
-[needed] - Eine Liste der Gegenstände die eingetauscht wurden
-[got] - Eine Liste der Gegenstände, welche der Spieler nach dem Tausch erhalten hat
-[trader_name] - Fügt den Namen des Händlers ein
-[trader_position] - Fügt die Koordinaten des Händlers zum Zeitpunkt des Handels im Format "x, y, z" ein
-
-]]
-
-Config.WebhookTranslation = {
-    ["tradeSuccess"] = "[character_name] hat [needed] für [got] eingetauscht."
 }
 
 --------------------------------------------------------------------------------
@@ -131,7 +113,7 @@ Config.Traders = {
     {
         id = "cottoneye", -- Eine einzigartige ID, welche intern vom Script genutzt wird
         name = "Cottoneye Joe", -- Der Name des Händlers (bzw. des NPC), welcher ebenso bei Interaktion angezeigt wird
-		randomizePosition = false, -- Wenn die Position dieses Händlers zufällig ausgewählt werden soll (Die Position wird aus den unten aufgeführten Listen gewählt) setze dies auf true, andernfalls auf false
+	randomizePosition = false, -- Wenn die Position dieses Händlers zufällig ausgewählt werden soll (Die Position wird aus den unten aufgeführten Listen gewählt) setze dies auf true, andernfalls auf false
         enableBlip = true, -- Möchtest du eine Markierung auf der Karte? Dann setze diesen Wert auf true, andernfalls auf false
         blipData = {
             icon = "blip_ambient_secret", -- Das Icon, welches für die Markierung genutzt wird
@@ -147,14 +129,14 @@ Config.Traders = {
             spawnDistance = 100.0, -- Ab welcher Entfernung der NPC despawned
             model = "MP_U_M_M_TRADER_01", -- Das Ped-Model des NPC
             position = vector4(2336.84, -1519.23, 46.06, 115.71), -- Die Position des NPC
-			positionList = { -- Liste der möglichen Positionen, aus denen das Script eine auswählt (nur wenn randomizePosition aktiv ist)
+	    positionList = { -- Liste der möglichen Positionen, aus denen das Script eine auswählt (nur wenn randomizePosition aktiv ist)
                 vector4(2336.84, -1519.23, 46.06, 115.71),
                 vector4(2346.9980, -1549.0118, 46.06, 353.2121),
             },
         },
         promptData = {
             position = vector3(2336.84, -1519.23, 46.06), -- Die Position an welcher das Interaktionsmenü angezeigt wird
-			positionList = { -- Liste der möglichen Positionen, aus denen das Script eine auswählt (nur wenn randomizePosition aktiv ist)
+	    positionList = { -- Liste der möglichen Positionen, aus denen das Script eine auswählt (nur wenn randomizePosition aktiv ist)
                 vector3(2336.84, -1519.23, 46.06),
                 vector3(2346.9980, -1549.0118, 46.06),
             },
@@ -174,7 +156,8 @@ Config.Traders = {
         trades = { -- Verfügbare Handelsangebote
             {
                 name = "Joe's Moonshine", -- Name des Angebots
-				tradingTime = 0, -- Zeit welche der Tausch in Anspruch nehmen soll (in Sekunden)
+		tradingTime = 0, -- Zeit welche der Tausch in Anspruch nehmen soll (in Sekunden)
+		tradeMaximum = false, -- Anzahl der Male, die dieser Tausch bis zum nächsten Neustart des Skripts durchgeführt werden kann, oder false, um das Limit zu deaktivieren
                 image = "moonshine.png", -- Das Bild, das im Menü genutzt wird. Platziere es in /html/img/
                 demand = {
                     { name = "water", image = "water.png", label = "Water", amount = 2 } -- Name des Items in der Datenbank, platziere das zugehörige Bild in /html/img/items/, der Anzeigetext im Menü, die benötigte Anzahl
