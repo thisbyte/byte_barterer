@@ -128,11 +128,13 @@ Config.Traders = {
         npcData = {
             spawnDistance = 100.0, -- Ab welcher Entfernung der NPC despawned
             model = "MP_U_M_M_TRADER_01", -- Das Ped-Model des NPC
+	    modelOutfit = 0, -- Das Outfit des NPCs (nummerisch, beginnend bei Null) oder false für ein zufälliges Outfit
             position = vector4(2336.84, -1519.23, 46.06, 115.71), -- Die Position des NPC
 	    positionList = { -- Liste der möglichen Positionen, aus denen das Script eine auswählt (nur wenn randomizePosition aktiv ist)
                 vector4(2336.84, -1519.23, 46.06, 115.71),
                 vector4(2346.9980, -1549.0118, 46.06, 353.2121),
             },
+	    playScenario = false, -- Scenario-Animation (Zum Beispiel "WORLD_HUMAN_STRAW_BROOM_WORKING") welche abgespielt werden soll als string oder false
         },
         promptData = {
             position = vector3(2336.84, -1519.23, 46.06), -- Die Position an welcher das Interaktionsmenü angezeigt wird
@@ -163,7 +165,7 @@ Config.Traders = {
                     { name = "water", image = "water.png", label = "Water", amount = 2 } -- Name des Items in der Datenbank, platziere das zugehörige Bild in /html/img/items/, der Anzeigetext im Menü, die benötigte Anzahl
                 },
                 offer = {
-                    { name = "moonshine", label = "Moonshine", amount = 1 } -- Name des Items in der Datenbank, platziere das zugehörige Bild in /html/img/items/, der Anzeigetext im Menü, die Anzahl, welche der Spieler erhält
+                    { name = "moonshine", label = "Moonshine", amount = 1, metadata = {} } -- Name des Items in der Datenbank, platziere das zugehörige Bild in /html/img/items/, der Anzeigetext im Menü, die Anzahl, welche der Spieler erhält, die Metadaten welche an das Item gebunden werden (Nur unter VORP-Core)
                 }
             }
         }
