@@ -134,7 +134,7 @@ Config.Traders = {
                 vector4(2336.84, -1519.23, 46.06, 115.71),
                 vector4(2346.9980, -1549.0118, 46.06, 353.2121),
             },
-	    playScenario = false, -- Scenario-Animation (Zum Beispiel "WORLD_HUMAN_STRAW_BROOM_WORKING") welche abgespielt werden soll als string oder false
+	    playScenario = false, -- Scenario-Animation (Zum Beispiel "WORLD_HUMAN_STRAW_BROOM_WORKING") welche abgespielt werden soll als String oder false
         },
         promptData = {
             position = vector3(2336.84, -1519.23, 46.06), -- Die Position an welcher das Interaktionsmenü angezeigt wird
