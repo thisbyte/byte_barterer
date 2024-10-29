@@ -161,10 +161,10 @@ Config.Traders = {
 		tradingTime = 0, -- Zeit welche der Tausch in Anspruch nehmen soll (in Sekunden)
 		tradeMaximum = false, -- Anzahl der Male, die dieser Tausch bis zum nächsten Neustart des Skripts durchgeführt werden kann, oder false, um das Limit zu deaktivieren
                 image = "moonshine.png", -- Das Bild, das im Menü genutzt wird. Platziere es in /html/img/
-                demand = {
+                demand = { -- Du kannst jeden Itemnamen, Waffen-Hash, "money", "gold" oder "rol" verwenden ("gold" oder "rol" ist nicht als Währung verfügbar und wird bei Verwendung von RSG Core als Item behandelt)
                     { name = "water", image = "water.png", label = "Water", amount = 2 } -- Name des Items in der Datenbank, platziere das zugehörige Bild in /html/img/items/, der Anzeigetext im Menü, die benötigte Anzahl
                 },
-                offer = {
+                offer = { -- Du kannst jeden Itemnamen, Waffen-Hash, "money", "gold" oder "rol" verwenden ("gold" oder "rol" ist nicht als Währung verfügbar und wird bei Verwendung von RSG Core als Item behandelt)
                     { name = "moonshine", label = "Moonshine", amount = 1, metadata = {} } -- Name des Items in der Datenbank, platziere das zugehörige Bild in /html/img/items/, der Anzeigetext im Menü, die Anzahl, welche der Spieler erhält, die Metadaten welche an das Item gebunden werden (Nur unter VORP-Core)
                 }
             }
