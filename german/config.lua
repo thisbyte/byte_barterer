@@ -168,6 +168,26 @@ Config.Traders = {
                     { name = "moonshine", label = "Moonshine", amount = 1, metadata = {} } -- Name des Items in der Datenbank, platziere das zugehörige Bild in /html/img/items/, der Anzeigetext im Menü, die Anzahl, welche der Spieler erhält, die Metadaten welche an das Item gebunden werden (Nur unter VORP-Core)
                 }
             }
+        },
+	overwriteMessages = {
+            ["TradeSuccessMessages"] = { -- Überschreibe die Nachricht, welche bei einem erfolgreichen Handel ausgegeben wird
+                "Sehr gute Wahl! Sag allen, sie sollen beim alten Joe vorbei schauen!"
+            },
+            ["TradeFailMessages"] = { -- Überschreibe die Nachricht, welche bei einem fehlerhaften Handel ausgegeben wird
+                "Hmm... Da kann Joe nicht helfen!"
+            },
+            ["TradeNotAllowed"] = { -- Überschreibe die Nachricht, welche ausgegeben wird, wenn der Spieler den Händler nicht nutzen darf
+                "Tut mir Leid, Joe spricht nicht mit jedem!"
+            },
+            ["TradeNoSpace"] = { -- Überschreibe die Nachricht, welche ausgegeben wird, wenn das Inventar des Spielers voll ist
+                "Joe denkt, dass du deine Taschen aufräumen solltest!"
+            },
+            ["TradeLimitReached"] = { -- Überschreibe die Nachricht, welche ausgegeben wird, wenn das Handelslimit erreicht ist
+                "Joe hat nichts mehr womit er handeln könnte."
+            },
+            ["TradeQueueFull"] = { -- Überschreibe die Nachricht, welche ausgegeben wird, wenn die Warteschlange voll ist
+                "Moment moment! So viele Hände hat Joe nicht!"
+            }
         }
     }
 }
