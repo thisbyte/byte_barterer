@@ -137,6 +137,7 @@ Config.Traders = {
 	    playScenario = false, -- Scenario-Animation (Zum Beispiel "WORLD_HUMAN_STRAW_BROOM_WORKING") welche abgespielt werden soll als String oder false
         },
         promptData = {
+	    enabled = true, -- Aktiviert das Interaktionsmenü zum Aufrufen des Händlers, false um es zu deaktivieren
             position = vector3(2336.84, -1519.23, 46.06), -- Die Position an welcher das Interaktionsmenü angezeigt wird
 	    positionList = { -- Liste der möglichen Positionen, aus denen das Script eine auswählt (nur wenn randomizePosition aktiv ist)
                 vector3(2336.84, -1519.23, 46.06),
@@ -146,6 +147,9 @@ Config.Traders = {
             key = 0x760A9C6F, -- Die Taste, um mit diesem Händler zu interagieren
             text = "Ansprechen" -- Der Text, welcher zum Interagieren angezeigt wird
         },
+	eventData = {
+	    enabled = false -- Aktiviert die Option das Menü des Händlers per Client-Event aufzurufen -> TriggerEvent('barterer:OpenMenu','deine_haendler_id')
+	},
         useShopHours = false, -- Soll der Händler nur zu speziellen Zeiten erscheinen? Setze diesen Wert auf true!
         shopOpen = 0, -- Die Stunde, in welcher der Händler erscheint / geöffnet hat (24-Stunden-System)
         shopClose = 8, -- Die Stunde, in welcher der Händler verschwindet / geschlossen hat (24-Stunden-System)
