@@ -7,6 +7,12 @@ Config = {}
 Config.Framework = "vorp" -- Als Framework werden "vorp" für VORP Core oder "rsg" für RSG Core unterstützt
 
 --------------------------------------------------------------------------------
+---------------------------- EIGENER BILDERPFAD --------------------------------
+--------------------------------------------------------------------------------
+
+Config.CustomImagePath = false -- Gib einen eigenen Bildpfad an (inklusive abschließdendem Schrägstrich, bspw. "nui://vorp_inventory/html/img/items/"), standardmäßig wird byte_barterer im eigenen Verzeichnis unter /html/img/items/ nach Bildern suchen
+
+--------------------------------------------------------------------------------
 ---------------- NPC-UNTERTITEL BEI EINEM ERFOLGREICHEN HANDEL -----------------
 --------------------------------------------------------------------------------
 
